@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Configuração de cores OKLCH para Tailwind v4 */
+@theme {
+  --color-gray-50: oklch(0.98 0.002 247.858);
+  --color-gray-100: oklch(0.96 0.004 247.858);
+  --color-gray-200: oklch(0.92 0.008 247.858);
+  --color-gray-300: oklch(0.87 0.012 247.858);
+  --color-gray-400: oklch(0.71 0.016 247.858);
+  --color-gray-500: oklch(0.55 0.020 247.858);
+  --color-gray-600: oklch(0.45 0.024 247.858);
+  --color-gray-700: oklch(0.35 0.028 247.858);
+  --color-gray-800: oklch(0.25 0.032 247.858);
+  --color-gray-900: oklch(0.15 0.036 247.858);
+  --color-gray-950: oklch(0.08 0.040 247.858);
+
+  --color-blue-400: oklch(0.7 0.15 240);
+  --color-blue-500: oklch(0.6 0.18 240);
+  --color-blue-600: oklch(0.5 0.20 240);
+
+  --color-green-400: oklch(0.7 0.15 140);
+  --color-green-500: oklch(0.6 0.18 140);
+
+  --color-red-400: oklch(0.7 0.15 20);
+  --color-red-500: oklch(0.6 0.18 20);
+  --color-red-600: oklch(0.5 0.20 20);
+  --color-red-900: oklch(0.3 0.25 20);
+
+  --color-yellow-400: oklch(0.8 0.15 80);
+  --color-yellow-600: oklch(0.6 0.18 80);
+  --color-yellow-900: oklch(0.3 0.25 80);
+
+  --color-purple-400: oklch(0.7 0.15 280);
+  --color-purple-500: oklch(0.6 0.18 280);
+
+  --color-cyan-400: oklch(0.7 0.15 200);
+  --color-cyan-500: oklch(0.6 0.18 200);
+
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-geist-sans: 'Geist Sans', system-ui, -apple-system, sans-serif;
+  --font-geist-mono: 'Geist Mono', 'Fira Code', monospace;
+}
+
+/* Reset e configurações base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter);
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Animações personalizadas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Classes utilitárias */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Gradientes personalizados */
+.gradient-primary {
+  background: linear-gradient(135deg, #00FFFF 0%, #0080FF 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00FFFF 0%, #0080FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Efeitos de hover */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Componentes personalizados */
+.card {
+  background: #1A1A1A;
+  border: 1px solid #333333;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: #00FFFF;
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #00FFFF 0%, #0080FF 100%);
+  color: #000000;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.3);
+}
+
+.button-secondary {
+  background: transparent;
+  color: #00FFFF;
+  border: 1px solid #00FFFF;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-secondary:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Input personalizado */
+.input-custom {
+  background: #000000;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-custom:focus {
+  outline: none;
+  border-color: #00FFFF;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.1);
+}
+
+.input-custom::placeholder {
+  color: #666666;
+}
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333333;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle input:checked + .toggle-slider {
+  background-color: #00FFFF;
+}
+
+.toggle input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* Status indicators */
+.status-online {
+  color: #10B981;
+}
+
+.status-offline {
+  color: #EF4444;
+}
+
+.status-pending {
+  color: #F59E0B;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid #333333;
+  border-top: 2px solid #00FFFF;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+  }
+  
+  .button-primary,
+  .button-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Dark mode específico para componentes */
+.dark {
+  color-scheme: dark;
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible para acessibilidade */
+.focus-visible:focus-visible {
+  outline: 2px solid #00FFFF;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .card {
+    border: 1px solid #ccc !important;
+    background: white !important;
+  }
+}
